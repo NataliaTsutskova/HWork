@@ -12,9 +12,6 @@ for (int i = 1; i <= b; i++)
 }
 Console.WriteLine(result);
 
-
-
-
 // Задача 2
 
 Console.WriteLine("Введите число: ");
@@ -42,7 +39,6 @@ int[] GetArray()
     }
     return result;
 }
-
 void PrintArray(int[] arr)
 {
     for (int i = 0; i < arr.Length; i++)
