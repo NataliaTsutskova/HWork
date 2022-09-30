@@ -28,22 +28,22 @@ void PrintArrayMatrix(int[,] matrix)
 }
 int[,] OrderArrayDigits(int[,] array)
 {
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-      for (int k = 0; k < array.GetLength(1) - 1; k++)
-      {
-        if (array[i, k] < array[i, k + 1])
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-          int temp = array[i, k + 1];
-          array[i, k + 1] = array[i, k];
-          array[i, k] = temp;
+            for (int k = 0; k < array.GetLength(1) - 1; k++)
+            {
+                if (array[i, k] < array[i, k + 1])
+                {
+                    int temp = array[i, k + 1];
+                    array[i, k + 1] = array[i, k];
+                    array[i, k] = temp;
+                }
+            }
         }
-      }
     }
-  }
-  return array;
+    return array;
 }
 int[,] MyArray = GenerateArray(3, 4, 0, 10);
 Console.WriteLine("Исходный массив:");
@@ -83,10 +83,10 @@ int LineNumberSmallestSum(int[,] array)
 {
     int minSum = array[0, 0];
     int lineMinSum = 0;
-    for(int i = 1; i < array.GetLength(0); i++)
+    for (int i = 1; i < array.GetLength(0); i++)
     {
         int sum = 0;
-        for(int j = 1; j < array.GetLength(1); j++)
+        for (int j = 1; j < array.GetLength(1); j++)
         {
             sum += array[i, j];
         }
@@ -94,7 +94,7 @@ int LineNumberSmallestSum(int[,] array)
         {
             minSum = sum;
             lineMinSum = i;
-        }  
+        }
     }
     return lineMinSum + 1;
 }
@@ -178,27 +178,27 @@ int[,,] GenerateArray3D()
         for (int j = 0; j < array.GetLength(0); j++)
         {
             for (int k = 0; k < array.GetLength(0); k++)
-              {
+            {
                 array[i, j, k] = (int)(Math.Pow(i + 1, 3) + Math.Pow(j + 2, 3) + Math.Pow(k + 3, 3));
-              }
+            }
         }
     }
     return array;
 }
-void PrintArray3D(int[,,]array)
+void PrintArray3D(int[,,] array)
 {
-     for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(0); j++)
         {
             for (int k = 0; k < array.GetLength(0); k++)
             {
-                Console.Write($"{array[i, j, k], 3} ({i}, {j}, {k})");
+                Console.Write($"{array[i, j, k],3} ({i}, {j}, {k})");
             }
             Console.WriteLine();
         }
     }
-}    
+}
 PrintArray3D(GenerateArray3D());
 
 // Задача № 5
@@ -213,33 +213,33 @@ int j = 0;
 
 while (temp <= sqareMatrix.GetLength(0) * sqareMatrix.GetLength(1))
 {
-  sqareMatrix[i, j] = temp;
-  temp++;
-  if (i <= j + 1 && i + j < sqareMatrix.GetLength(1) - 1)
-    j++;
-  else if (i < j && i + j >= sqareMatrix.GetLength(0) - 1)
-    i++;
-  else if (i >= j && i + j > sqareMatrix.GetLength(1) - 1)
-    j--;
-  else
-    i--;
+    sqareMatrix[i, j] = temp;
+    temp++;
+    if (i <= j + 1 && i + j < sqareMatrix.GetLength(1) - 1)
+        j++;
+    else if (i < j && i + j >= sqareMatrix.GetLength(0) - 1)
+        i++;
+    else if (i >= j && i + j > sqareMatrix.GetLength(1) - 1)
+        j--;
+    else
+        i--;
 }
 
 WriteArray(sqareMatrix);
 
-void WriteArray (int[,] array)
+void WriteArray(int[,] array)
 {
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-      if (array[i,j] / 10 <= 0)
-      Console.Write($" {array[i,j]} ");
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            if (array[i, j] / 10 <= 0)
+                Console.Write($" {array[i, j]} ");
 
-      else Console.Write($"{array[i,j]} ");
+            else Console.Write($"{array[i, j]} ");
+        }
+        Console.WriteLine();
     }
-    Console.WriteLine();
-  }
 }
 
 

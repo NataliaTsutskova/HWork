@@ -1,7 +1,7 @@
 ﻿
 // Задача 1
 
-int[] GetArray()
+int[] GenerateArray()
 {
     int[] result = new int[10];
 
